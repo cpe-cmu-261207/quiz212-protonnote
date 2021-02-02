@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   const persons = [
     {
@@ -11,15 +13,32 @@ function App() {
       age: "20"
     }
   ];
+
+  const [myCount, setMyCount] = useState(0);
+
+  function addp(event) {
+    event.preventDefault();
+    var count = myCount;
+    setMyCount(count + 1);
+  }
+  function addd(event) {
+    event.preventDefault();
+    var count = myCount;
+    setMyCount(count - 1);
+  }
+  function reset(event) {
+    event.preventDefault();
+    setMyCount(0);
+  }
   return (
     <div class="ml-2">
       {/* Code me please! */}
       <div class="mb-4">
         <h3 class="title is-3">ID Counter</h3>
-        <p>YOUR ID HERE</p>
-        <button>-</button>
-        <button>reset</button>
-        <button>+</button>
+        <p>{myCount}</p>
+        <button onClick={addd}>-</button>
+        <button onClick={reset}>reset</button>
+        <button onClick={addp}>+</button>
       </div>
 
       {/* Convert me to a component! */}
